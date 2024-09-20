@@ -47,6 +47,11 @@ const totalPriceText = document.getElementById("total-price");
 const cartCountText = document.getElementById("cart-count-text");
 const cartList = document.getElementById("cart-items");
 
+// modals
+const thankYouModal = document.getElementById("thank-you-modal");
+const modalOverlay = document.getElementById("modal-overlay");
+const emptyCartModal = document.getElementById("empty-cart-modal");
+
 // function to render the cart items on the page
 function renderCartItems() {
   // Clear the cart list
@@ -166,36 +171,31 @@ function proceedToCheckout() {
 
 // Function to show the Thank You message
 function showThankYouMessage() {
-  const modal = document.getElementById("thank-you-modal");
-  const overlay = document.getElementById("modal-overlay");
+  
 
   // Show modal and overlay
-  modal.classList.add("active");
-  overlay.classList.add("active");
+  thankYouModal.classList.add("active");
+  modalOverlay.classList.add("active");
 }
 
 // Function to close the Thank You message
 function closeThankYouMessage() {
-  const modal = document.getElementById("thank-you-modal");
-  const overlay = document.getElementById("modal-overlay");
 
   // Hide modal and overlay
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
+  thankYouModal.classList.remove("active");
+  modalOverlay.classList.remove("active");
 }
 
 // Function to show the empty cart modal
 function showEmptyCartModal() {
-  const modal = document.getElementById("empty-cart-modal");
-  const overlay = document.getElementById("modal-overlay");
 
   // Show modal and overlay
-  modal.classList.add("active");
-  overlay.classList.add("active");
+  emptyCartModal.classList.add("active");
+  modalOverlay.classList.add("active");
 
   // Close modal when clicking the close button or the overlay
   document.querySelector(".close-btn").addEventListener("click", closeEmptyCartModal);
-  overlay.addEventListener("click", closeEmptyCartModal);
+  modalOverlay.addEventListener("click", closeEmptyCartModal);
 
   // Add event listener for continue shopping button
   document.getElementById("continue-shopping").addEventListener("click", closeEmptyCartModal);
@@ -203,12 +203,10 @@ function showEmptyCartModal() {
 
 // Function to close the empty cart modal
 function closeEmptyCartModal() {
-  const modal = document.getElementById("empty-cart-modal");
-  const overlay = document.getElementById("modal-overlay");
 
   // Hide modal and overlay
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
+  emptyCartModal.classList.remove("active");
+  modalOverlay.classList.remove("active");
 
 }
 
